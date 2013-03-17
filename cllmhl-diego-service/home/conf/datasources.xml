@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<datasource name="POOL">
+		<type>POOL</type>
+		<driverClassName>org.hsqldb.jdbcDriver</driverClassName>
+		<url>jdbc:hsqldb:file:./home/db/testdb</url>
+		<username>SA</username>
+		<password></password>
+		<initialSize>2</initialSize>
+		<maxActive>10</maxActive>
+		<minIdle>2</minIdle>
+		<validationQuery>SELECT 1</validationQuery>
+	</datasource>
+</datasources>
