@@ -3,6 +3,7 @@ package it.fe.cllmhl.diego;
 import java.util.List;
 
 import junit.framework.Assert;
+import junitx.util.PrivateAccessor;
 
 import org.junit.Test;
 
@@ -24,4 +25,14 @@ public class DiegoServiceTest {
         }
     }
 
+    @Test
+    public void testGetRootPackage() {
+        String lRootPackage = null;
+        try {
+            lRootPackage = (String) PrivateAccessor.invoke(DiegoService.class, "getRootPackage", null, null);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        Assert.assertNotNull(lRootPackage);
+    }
 }
