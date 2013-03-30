@@ -15,16 +15,12 @@ public class DiegoTable {
     public DiegoTable(Table table) {
         this.table = table;
         for (schemacrawler.schema.Column column : table.getColumns()) {
-            columns.add(new DiegoColumn(column));
+            columns.add(new DiegoColumn(column,this));
         }
     }
 
     public String getBean() {
         return getJavaClassName() + "Bean";
-    }
-
-    public DiegoColumn getColumn(String column) {
-        return new DiegoColumn(table.getColumn(column));
     }
 
     public List<DiegoColumn> getColumns() {

@@ -26,6 +26,23 @@ public class DiegoServiceTest {
     }
 
     @Test
+    public void testGenerateAll() {
+        CodeGeneratorBean lCodeGeneratorBean = new CodeGeneratorBean();
+        lCodeGeneratorBean.setConnection("POOL");
+        DiegoDatabase lDBMetadata = DiegoService.getMetadata(lCodeGeneratorBean);
+        DiegoService.generate(lDBMetadata);
+    }
+
+    @Test
+    public void testGetProjectDrivers() {
+        try {
+            PrivateAccessor.invoke(DiegoService.class, "getProjectDrivers", null, null);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void testGetRootPackage() {
         String lRootPackage = null;
         try {

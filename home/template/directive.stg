@@ -1,3 +1,0 @@
-group single;
-rootPackage() ::= <<it.fe.cllmhl>>
-projectRoot() ::= <<html>>

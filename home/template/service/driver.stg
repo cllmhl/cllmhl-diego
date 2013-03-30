@@ -1,0 +1,2 @@
+group single;
+bean(table,package) ::= <<tableBean,$table.bean$.java,generated/service>>

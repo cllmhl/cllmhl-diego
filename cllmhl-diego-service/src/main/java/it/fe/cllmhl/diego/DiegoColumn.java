@@ -8,9 +8,9 @@ public class DiegoColumn {
     private Column column;
     private DiegoTable diegoTable;
 
-    public DiegoColumn(Column column) {
+    public DiegoColumn(Column column, DiegoTable diegoTable) {
         this.column = column;
-        diegoTable = new DiegoTable(column.getParent());
+        this.diegoTable = diegoTable;
     }
 
     public DiegoTable getDiegoTable() {
@@ -278,7 +278,7 @@ public class DiegoColumn {
         if (isPartOfForeignKey()) {
             DiegoTable lReferencedTable = new DiegoTable(column.getReferencedColumn().getParent());
             if (lReferencedTable != null) {
-                return new DiegoColumn(column.getReferencedColumn());
+                return new DiegoColumn(column.getReferencedColumn(),lReferencedTable);
             }
         }
         return null;
