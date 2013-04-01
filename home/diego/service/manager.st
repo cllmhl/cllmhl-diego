@@ -1,4 +1,4 @@
-tableManager(package,table) ::= <<
+manager(package,table) ::= <<
 package $package$.logic;
 
 import java.util.List;

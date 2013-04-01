@@ -1,4 +1,4 @@
-tableDao(package,table) ::= <<
+dao(package,table) ::= <<
 package $package$.logic;
 
 

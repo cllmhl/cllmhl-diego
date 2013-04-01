@@ -1,4 +1,4 @@
-tableBean(package,table) ::= <<
+bean(package,table) ::= <<
 package $package$.model;
 
 import et.sql.BaseDaoBean;
