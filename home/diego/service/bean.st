@@ -2,6 +2,10 @@ bean(package,table) ::= <<
 package $package$.model;
 
 import et.sql.BaseDaoBean;
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
 
 public final class $table.bean$ extends BaseDaoBean {
 $table.columns: {column|

@@ -27,7 +27,7 @@ public class DiegoColumn {
     }
 
     public String getJavaType() {
-        return getSqlTypeMapping().getJavaType().getName();
+        return getSqlTypeMapping().getJavaType().getSimpleName();
     }
 
     public String getJspClass() {

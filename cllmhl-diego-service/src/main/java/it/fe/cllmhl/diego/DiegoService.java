@@ -59,7 +59,7 @@ public final class DiegoService {
     }
 
     public static void generate(DiegoDatabase pDiegoDatabase) {
-        mLogger.debug("generate start on ",pDiegoDatabase);
+        mLogger.debug("generate start on ", pDiegoDatabase);
         String lStrPackage = getRootPackage();
         mLogger.debug("using template group located at ", Template.TEMPLATE_HOME, " and package ", lStrPackage);
         for (DiegoTable lTable : pDiegoDatabase.getTables()) {
@@ -74,78 +74,6 @@ public final class DiegoService {
             }
             mLogger.debug("finish generating artifacts for table ", lTable.getName());
         }
-//        mLogger.debug("Generating bean for table ", lTable.getName());
-//        String lStrBasePath = Installation.getHomeDirectory() + ".." + File.separator + "src" + File.separator;
-//        lStrBasePath += lStrPackage.replace(".", File.separator) + File.separator;
-//        createDirectoryIfNotExists(lStrBasePath);
-//        mLogger.debug("generating file in ", lStrBasePath);
-//        // Bean
-//        ST lTemplate = TemplateGroup.JAVA.getInstanceOf("tableBean");
-//        mLogger.debug("Using template ", lTemplate.getName());
-//        lTemplate.add("table", lTable);
-//        lTemplate.add("package", lStrPackage);
-//        String lStrModelPath = lStrBasePath + "model" + File.separator;
-//        String lStrModelFile = lStrModelPath + lTable.getBean() + ".java";
-//        mLogger.info("generating ", lStrModelFile);
-//        generateFile(lTemplate, lStrModelPath, lStrModelFile);
-//        // Manager
-//        lTemplate = TemplateGroup.JAVA.getInstanceOf("tableManager");
-//        mLogger.debug("Using template ", lTemplate.getName());
-//        lTemplate.add("table", lTable);
-//        lTemplate.add("package", lStrPackage);
-//        String lStrLogicPath= lStrBasePath + "logic" + File.separator;
-//        String lStrLogicFile = lStrLogicPath + lTable.getManager() + ".java";
-//        mLogger.info("generating ", lStrLogicFile);
-//        generateFile(lTemplate, lStrLogicPath, lStrLogicFile);
-//        // Dao
-//        lTemplate = TemplateGroup.JAVA.getInstanceOf("tableDao");
-//        mLogger.debug("Using template ", lTemplate.getName());
-//        lTemplate.add("table", lTable);
-//        lTemplate.add("package", lStrPackage);
-//        String lStrDaoFile = lStrLogicPath + lTable.getDao() + ".java";
-//        mLogger.info("generating ", lStrDaoFile);
-//        generateFile(lTemplate, lStrLogicPath, lStrDaoFile);
-        mLogger.debug("generate finish");
-   }
-
-    public static void generateDao(DiegoDatabase pDiegoDatabase, List<Driver> pDrivers) {
-        // mLogger.debug("generateDao start");
-        // String lStrPackage = getRootPackage();
-        // mLogger.debug("using template group located at ", TemplateGroup.JAVA, " and package ", lStrPackage);
-        // for (DiegoTable lTable : pDiegoDatabase.getTables()) {
-        // mLogger.debug("Generating bean for table ", lTable.getName());
-        // String lStrBasePath = Installation.getHomeDirectory() + ".." + File.separator + "src" + File.separator;
-        // lStrBasePath += lStrPackage.replace(".", File.separator) + File.separator;
-        // createDirectoryIfNotExists(lStrBasePath);
-        // mLogger.debug("generating file in ", lStrBasePath);
-        // // Bean
-        // ST lTemplate = TemplateGroup.JAVA.getInstanceOf("tableBean");
-        // mLogger.debug("Using template ", lTemplate.getName());
-        // lTemplate.add("table", lTable);
-        // lTemplate.add("package", lStrPackage);
-        // String lStrModelPath = lStrBasePath + "model" + File.separator;
-        // String lStrModelFile = lStrModelPath + lTable.getBean() + ".java";
-        // mLogger.info("generating ", lStrModelFile);
-        // generateFile(lTemplate, lStrModelPath, lStrModelFile);
-        // // Manager
-        // lTemplate = TemplateGroup.JAVA.getInstanceOf("tableManager");
-        // mLogger.debug("Using template ", lTemplate.getName());
-        // lTemplate.add("table", lTable);
-        // lTemplate.add("package", lStrPackage);
-        // String lStrLogicPath= lStrBasePath + "logic" + File.separator;
-        // String lStrLogicFile = lStrLogicPath + lTable.getManager() + ".java";
-        // mLogger.info("generating ", lStrLogicFile);
-        // generateFile(lTemplate, lStrLogicPath, lStrLogicFile);
-        // // Dao
-        // lTemplate = TemplateGroup.JAVA.getInstanceOf("tableDao");
-        // mLogger.debug("Using template ", lTemplate.getName());
-        // lTemplate.add("table", lTable);
-        // lTemplate.add("package", lStrPackage);
-        // String lStrDaoFile = lStrLogicPath + lTable.getDao() + ".java";
-        // mLogger.info("generating ", lStrDaoFile);
-        // generateFile(lTemplate, lStrLogicPath, lStrDaoFile);
-        // }
-        // mLogger.debug("generateDao finish");
     }
 
     private static void generateFile(ST pTemplate, String pStrDirectory, String pStrFile) {
@@ -171,70 +99,15 @@ public final class DiegoService {
         mLogger.debug("generateFile finish");
     }
 
-    // public static void generateJsp(DiegoDatabase pDiegoDatabase) {
-    // mLogger.debug("generateJsp start");
-    // StringTemplateGroup lStringTemplateGroup = new StringTemplateGroup("jsp", getTemplateDirectory() + File.separatorChar + "jsp");
-    // mLogger.debug("using template group located at ", lStringTemplateGroup.getRootDir());
-    // for (DiegoTable lTable : pDiegoDatabase.getTables()) {
-    // mLogger.debug("Generating jsp for table ", lTable.getName());
-    // String lStrBasePath = getGeneatedRoot() + "jsp" + File.separator + lTable.getJavaName() + File.separator;
-    // mLogger.debug("generating file in ", lStrBasePath);
-    // createDirectoryIfNotExists(lStrBasePath);
-    // // Browser
-    // StringTemplate lStringTemplate = lStringTemplateGroup.getInstanceOf("tableBrowser");
-    // mLogger.debug("Using template ", lStringTemplate.getName());
-    // lStringTemplate.setAttribute("table", lTable);
-    // String lStrGeneratedFile = lStrBasePath + lTable.getJavaName() + "Browser.jsp";
-    // mLogger.info("generating ", lStrGeneratedFile);
-    // generateFile(lStringTemplate, lStrGeneratedFile);
-    // // Form
-    // lStringTemplate = lStringTemplateGroup.getInstanceOf("tableForm");
-    // mLogger.debug("Using template ", lStringTemplate.getName());
-    // lStringTemplate.setAttribute("table", lTable);
-    // lStrGeneratedFile = lStrBasePath + lTable.getJavaName() + "Form.jsp";
-    // mLogger.info("generating ", lStrGeneratedFile);
-    // generateFile(lStringTemplate, lStrGeneratedFile);
-    // // Row
-    // lStringTemplate = lStringTemplateGroup.getInstanceOf("tableRow");
-    // mLogger.debug("Using template ", lStringTemplate.getName());
-    // lStringTemplate.setAttribute("table", lTable);
-    // lStrGeneratedFile = lStrBasePath + lTable.getJavaName() + "Row.jspf";
-    // mLogger.info("generating ", lStrGeneratedFile);
-    // generateFile(lStringTemplate, lStrGeneratedFile);
-    // }
-    // mLogger.debug("generateJsp finish");
-    // }
-
-    // public static void generateServlet(DiegoDatabase pDiegoDatabase) {
-    // mLogger.debug("generateServlet start");
-    // StringTemplateGroup lStringTemplateGroup = new StringTemplateGroup("java", getTemplateDirectory() + File.separatorChar + "java");
-    // String lStrPackage = getRootPackage();
-    // mLogger.debug("using template group located at ", lStringTemplateGroup.getRootDir(), " and package ", lStrPackage);
-    // for (DiegoTable lTable : pDiegoDatabase.getTables()) {
-    // mLogger.debug("Generating servlet for table ", lTable.getName());
-    // String lStrBasePath = getGeneatedRoot() + File.separator;
-    // lStrBasePath += lStrPackage.replace(".", File.separator) + File.separator;
-    // lStrBasePath += "servlet" + File.separator;
-    // mLogger.debug("generating file in ", lStrBasePath);
-    // createDirectoryIfNotExists(lStrBasePath);
-    // // Servlet
-    // StringTemplate lStringTemplate = lStringTemplateGroup.getInstanceOf("tableServlet");
-    // mLogger.debug("Using template ", lStringTemplate.getName());
-    // lStringTemplate.setAttribute("table", lTable);
-    // lStringTemplate.setAttribute("package", lStrPackage);
-    // String lStrGeneratedFile = lStrBasePath + lTable.getServlet() + ".java";
-    // mLogger.info("generating ", lStrGeneratedFile);
-    // generateFile(lStringTemplate, lStrGeneratedFile);
-    // }
-    // mLogger.debug("generateServlet finish");
-    // }
-
-    private static String getProjectDirectory() {
-        mLogger.debug("getProjectDirectory start");
-        ST lTemplate = getProjectGroup().getInstanceOf(Template.POJECT_DIRECTORY.name);
-        String lStrProjectDirectory = Template.TEMPLATE_HOME.concat(lTemplate.render());
-        mLogger.debug("getProjectDirectory finish returning ", lStrProjectDirectory);
-        return lStrProjectDirectory;
+    public static DiegoDatabase getDatabase(String pStrDatasource) {
+        List<DiegoDatabase> lDatabaseList = getDatabases();
+        DiegoDatabase myDiegoDatabase = null;
+        for (DiegoDatabase lDiegoDatabase : lDatabaseList) {
+            if (lDiegoDatabase.getDatasource().equalsIgnoreCase(pStrDatasource)) {
+                myDiegoDatabase = lDiegoDatabase;
+            }
+        }
+        return myDiegoDatabase;
     }
 
     public static List<DiegoDatabase> getDatabases() {
@@ -254,19 +127,12 @@ public final class DiegoService {
         return lDatabaseList;
     }
 
-    public static DiegoDatabase getDatabase(String pStrDatasource) {
-        List<DiegoDatabase> lDatabaseList = getDatabases();
-        DiegoDatabase myDiegoDatabase = null;
-        for (DiegoDatabase lDiegoDatabase : lDatabaseList) {
-            if(lDiegoDatabase.getDatasource().equalsIgnoreCase(pStrDatasource)){
-                myDiegoDatabase = lDiegoDatabase;
-            }
-        }
-        return myDiegoDatabase;
+    private static STGroup getDirectoryDriverGroup(String directory) {
+        return new STGroupDir(Template.TEMPLATE_HOME.concat(directory), Template.TEMPLATE_DELIMITER_CHAR, Template.TEMPLATE_DELIMITER_CHAR);
     }
 
     private static STGroup getDriverGroup(String pStrDirectory) {
-        return new STGroupFile(Template.TEMPLATE_HOME.concat(pStrDirectory).concat(File.separator).concat(Template.DRIVER.name),Template.TEMPLATE_DELIMITER_CHAR,Template.TEMPLATE_DELIMITER_CHAR);
+        return new STGroupFile(Template.TEMPLATE_HOME.concat(pStrDirectory).concat(File.separator).concat(Template.DRIVER.name), Template.TEMPLATE_DELIMITER_CHAR, Template.TEMPLATE_DELIMITER_CHAR);
     }
 
     public static DiegoDatabase getMetadata(CodeGeneratorBean pCodeGeneratorBean) {
@@ -290,6 +156,26 @@ public final class DiegoService {
         return lDiegoDatabase;
     }
 
+    private static String getProjectDirectory() {
+        mLogger.debug("getProjectDirectory start");
+        ST lTemplate = getProjectGroup().getInstanceOf(Template.POJECT_DIRECTORY.name);
+        String lStrProjectDirectory = Template.TEMPLATE_HOME.concat(lTemplate.render());
+        mLogger.debug("getProjectDirectory finish returning ", lStrProjectDirectory);
+        return lStrProjectDirectory;
+    }
+
+    private static STGroup getProjectGroup() {
+        return new STGroupFile(Template.TEMPLATE_HOME.concat(Template.PROJECT.name), Template.TEMPLATE_DELIMITER_CHAR, Template.TEMPLATE_DELIMITER_CHAR);
+    }
+
+    private static String getRootPackage() {
+        mLogger.debug("getRootPackage start");
+        ST lSTRootPackage = getProjectGroup().getInstanceOf(Template.ROOT_PACKAGE.name);
+        String lStrRootPackage = lSTRootPackage.render();
+        mLogger.debug("getRootPackage finish returning ", lStrRootPackage);
+        return lStrRootPackage;
+    }
+
     public static List<Driver> getTableDrivers(String pStrPackage, DiegoTable pDiegoTable) {
         mLogger.debug("getProjectDrivers start");
         // directories to enter are defined in SUB_DIRECTORIES template
@@ -311,28 +197,12 @@ public final class DiegoService {
                 String driver = lTemplate.render();
                 mLogger.debug("building driver: ", driver);
                 String[] lStrDriverPiece = driver.split(",");
-                Driver lDriver = new Driver(directoryDriverGroup,lStrDriverPiece[0], lStrDriverPiece[1], lStrDriverPiece[2]);
+                Driver lDriver = new Driver(directoryDriverGroup, lStrDriverPiece[0], lStrDriverPiece[1], lStrDriverPiece[2]);
                 lDrivers.add(lDriver);
                 mLogger.debug("completed driver: ", lDriver);
             }
         }
         mLogger.debug("getProjectDrivers finish returning ", lDrivers);
         return lDrivers;
-    }
-
-    private static STGroup getProjectGroup() {
-        return new STGroupFile(Template.TEMPLATE_HOME.concat(Template.PROJECT.name),Template.TEMPLATE_DELIMITER_CHAR,Template.TEMPLATE_DELIMITER_CHAR);
-    }
-    
-    private static STGroup getDirectoryDriverGroup(String directory) {
-        return new STGroupDir(Template.TEMPLATE_HOME.concat(directory),Template.TEMPLATE_DELIMITER_CHAR,Template.TEMPLATE_DELIMITER_CHAR);
-    }
-
-    private static String getRootPackage() {
-        mLogger.debug("getRootPackage start");
-        ST lSTRootPackage = getProjectGroup().getInstanceOf(Template.ROOT_PACKAGE.name);
-        String lStrRootPackage = lSTRootPackage.render();
-        mLogger.debug("getRootPackage finish returning ", lStrRootPackage);
-        return lStrRootPackage;
     }
 }
