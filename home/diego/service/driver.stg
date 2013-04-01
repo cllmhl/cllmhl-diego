@@ -1,5 +1,5 @@
 group single;
 bean(table,package) ::= <<bean,$table.javaClassName$Bean.java,generated/service>>
-dao(table,package) ::= <<tableDao,$table.javaClassName$Dao.java,generated/service>>
-manager(table,package) ::= <<tableManager,$table.javaClassName$Service.java,generated/service>>
+dao(table,package) ::= <<dao,$table.javaClassName$Dao.java,generated/service>>
+manager(table,package) ::= <<manager,$table.javaClassName$Service.java,generated/service>>
 
