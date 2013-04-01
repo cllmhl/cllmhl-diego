@@ -1,2 +1,0 @@
-group single;
-bean(table,package) ::= <<tableBrowser,FileName,generated/web>>

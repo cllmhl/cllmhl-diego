@@ -1,3 +1,4 @@
+tableDao(package,table) ::= <<
 package $package$.logic;
 
 
@@ -141,14 +142,14 @@ $table.columns: {column|
             lStringBufferSQL.append($column.javaName$.name);
             lStringBufferSQL.append("$column.qbeClause$");
         	lSQLParameterList.add(new SQLParameter($column.javaName$, $column.qbeValue$));
-        }
+        \}
 $if(column.needRange)$
 		if (p$table.bean$.get$column.objectName$to() != null) {
         	lStringBufferSQL.append(" AND ");
             lStringBufferSQL.append($column.javaName$.name);
             lStringBufferSQL.append(" <= ?");
         	lSQLParameterList.add(new SQLParameter($column.javaName$, p$table.bean$.get$column.objectName$to()));
-        }
+        \}
 $endif$}$
 
 		WhereCondition lWhereCondition = new WhereCondition();
@@ -183,3 +184,4 @@ $endif$}$
         }
     }
 }
+>>

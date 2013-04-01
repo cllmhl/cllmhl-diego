@@ -1,3 +1,4 @@
+tableManager(package,table) ::= <<
 package $package$.logic;
 
 import java.util.List;
@@ -65,3 +66,4 @@ $table.pks: {column|
 		$table.dao$.updateByPrimaryKey(p$table.bean$);
 	}
 }
+>>

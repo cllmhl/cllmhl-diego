@@ -11,7 +11,7 @@ public enum Template {
     POJECT_DIRECTORY("projectDirectory"),
     SUB_DIRECTORIES("subDirectories");
 
-    public static String TEMPLATE_HOME = Installation.getHomeDirectory().concat("template").concat(File.separator);
+    public static String TEMPLATE_HOME = Installation.getHomeDirectory().concat("diego").concat(File.separator);
     public static Character TEMPLATE_DELIMITER_CHAR = '$';
 
     String name;

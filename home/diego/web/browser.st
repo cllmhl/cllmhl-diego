@@ -1,3 +1,4 @@
+browser(package,table) ::= <<
 <%@ include file="/include/directive.jsp" %>
 <tags:begin/>
 <head>
@@ -48,7 +49,7 @@ $table.columns: {column|
 			<thead>
 				<tr>
 $table.columns: {column|
-					<th class="ui-state-default {sorter: {column: '$column.name$', type: '$column.jspType$'}}"><fmt:message key="$column.i18nLabel$" /></th>}$
+					<th class="ui-state-default {sorter: {column: '$column.name$', type: '$column.jspType$'\}\}"><fmt:message key="$column.i18nLabel$" /></th>}$
 					<th nowrap="nowrap">&nbsp;
 						<a id="insert" href="svt/$table.servlet$?action=startInsert" class="{iframe: true}"><img src="images/spacer.gif" alt="<fmt:message key="jsp.datagrid.insert"/>" class="ui-icon ui-icon-circle-plus"/></a>
 					</th>
@@ -72,3 +73,4 @@ $table.columns: {column|
 <tags:footer/>
 </body>
 <tags:end/>
+>>

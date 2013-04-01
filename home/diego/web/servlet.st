@@ -1,3 +1,4 @@
+servlet(package,table) ::= <<
 package $package$.servlet;
 
 
@@ -140,3 +141,4 @@ $table.parentTables: {parentTable|
 		return Action.fromString(pStrAction);
 	}
 }
+>>

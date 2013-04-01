@@ -1,3 +1,4 @@
+form(package,table) ::= <<
 <%@ include file="/include/directive.jsp" %>
 <tags:begin/>
 <head>
@@ -62,6 +63,4 @@ $table.columns: {column|
 </c:if>
 </body>
 <tags:end/>
-
-
-
+>>

@@ -1,0 +1,5 @@
+group single;
+servlet(table,package) ::= <<servlet,$table.javaClassName$Servlet.java,generated/web>>
+browser(table,package) ::= <<browser,$table.javaName$Browser.jsp,generated/web>>
+form(table,package) ::= <<form,$table.javaName$Form.jsp,generated/web>>
+row(table,package) ::= <<row,$table.javaName$row.jspf,generated/web>>

@@ -1,4 +1,4 @@
 group single;
 rootPackage() ::= <<it.fe.cllmhl>>
 projectDirectory() ::= <<../../>>
-subDirectories() ::= <<service>>
+subDirectories() ::= <<service,web>>

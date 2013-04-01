@@ -40,7 +40,7 @@ public class DiegoTable {
     }
 
     // Diego helpers
-    private String getJavaClassName() {
+    public String getJavaClassName() {
         return StringUtil.convertToJavaClassName(getName());
     }
 
